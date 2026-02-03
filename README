@@ -1,0 +1,14 @@
+# Tic Tac Toe 🎮
+
+A simple Tic Tac Toe game built using **HTML, CSS, and JavaScript**.
+
+## Features
+- Two-player game (X vs O)
+- Win & draw detection
+- Restart button
+
+## How to Run
+Just open `index.html` in your browser.
+
+## Live Demo
+(You can add GitHub Pages link here)
