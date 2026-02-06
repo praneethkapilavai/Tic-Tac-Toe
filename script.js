@@ -17,9 +17,11 @@ let patterns=[
 
 let turnX = true;
 let btnCount = 0;
+let gameOver = false;
 let displayWinner = (Winner)=>{
     msg.innerHTML = `Congratulations Winner is ${Winner}`
     hideClass.classList.remove("hide")
+    gameOver = true;
     
     boxes.forEach((box)=>{
         box.disabled = true
@@ -36,9 +38,11 @@ let checkWinner = ()=>{
        
         if(pos1Val === pos2Val  && pos1Val === pos3Val && pos1Val === "X") {
             displayWinner(pos1Val)
+            return;
         }
         if(pos1Val === pos2Val  && pos1Val === pos3Val && pos1Val === "O"){
             displayWinner(pos1Val)
+            return;
         }
 
     }
@@ -46,7 +50,9 @@ let checkWinner = ()=>{
 }
 
 let displayDraw = () =>{
+    hideClass.classList.remove("hide")
     msg.innerHTML = "Thats a DRAW !!"
+    btnCount = 0;
 }
 
 boxes.forEach((box) =>{
@@ -63,7 +69,7 @@ boxes.forEach((box) =>{
         btnCount++;
         box.disabled = true
         checkWinner();
-        if(btnCount === 9) displayDraw();
+        if(btnCount === 9 && !gameOver) displayDraw();
     } )
     
 })
@@ -77,6 +83,7 @@ const resetFunc = ()=>{
         box.disabled = false
     })
 
+    gameOver = false;
     hideClass.classList.add("hide")
 }
 
